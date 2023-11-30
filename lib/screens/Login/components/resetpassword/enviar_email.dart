@@ -6,8 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../api/conexion.dart';
 import '../../../../constants.dart';
 import '../../../../utils/app_text_styles.dart';
-import '../../../../utils/transition.dart';
-import 'verificar_clave.dart';
+
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({super.key});

@@ -1,8 +1,5 @@
-import 'dart:async';
-
 import 'package:edusmart/screens/Quizz/widgets/questionindicator/progress_indicator_widget.dart';
 import 'package:flutter/material.dart';
-import '../../../../utils/app_colors.dart';
 import '../../../../utils/app_text_styles.dart';
 
 

@@ -153,6 +153,7 @@ class _NuevaContrasenaState extends State<NuevaContrasena> {
                                     if (value!.isEmpty) {
                                       return "Por favor, ingrese una contraseña";
                                     }
+                                    return null;
 
                                     //return null;
                                   },

@@ -1,7 +1,5 @@
-import 'package:edusmart/utils/transition.dart';
 import 'package:flutter/material.dart';
 import '../../api/conexion.dart';
-import '../../views/perfil.dart';
 import '../appbar/appbar_widget.dart';
 import 'widgets/subtema.dart';
 

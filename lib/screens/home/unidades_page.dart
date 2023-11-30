@@ -5,6 +5,7 @@ import '../../utils/app_text_styles.dart';
 import '../appbar/appbar_widget.dart';
 import 'widgets/tema.dart';
 
+// ignore: must_be_immutable
 class UnidadPage extends StatefulWidget {
   UnidadPage({super.key, required this.titulo, required this.id_materia});
   String titulo;

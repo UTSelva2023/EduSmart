@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'package:edusmart/utils/transition.dart';
 import 'package:flutter/material.dart';
 import '../../../api/conexion.dart';
@@ -112,6 +114,7 @@ class _ContenidoState extends State<Contenido>{
                                       color: kDarkBlue,
                                       borderRadius: BorderRadius.circular(15)),
                                 ),
+                                  
                                   _conexion.infografias == null ?
                                     const Text(
                                       "00",
