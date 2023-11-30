@@ -1,27 +1,32 @@
-name: Prueba-Automatizada1
+name: SonarQube Analysis
 
 on:
   push:
     branches:
       - main
 
-
 jobs:
-  build:
-    name: Build
+  sonarqube:
     runs-on: ubuntu-latest
-    permissions: read-all
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      #- uses: sonarsource/sonarqube-scan-action@master
+          flutter-version: '3.10.6'  # ajusta la versión según tu proyecto
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: SonarQube Scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      # If you wish to fail your job when the Quality Gate is red, uncomment the
-      # following lines. This would typically be used to fail a deployment.
-      # - uses: sonarsource/sonarqube-quality-gate-action@master
-      #   timeout-minutes: 5
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          flutter pub global activate sonar
+          flutter pub global run sonar:main \
+            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+            -Dsonar.login=${SONAR_TOKEN}
