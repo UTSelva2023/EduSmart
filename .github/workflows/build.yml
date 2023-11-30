@@ -16,7 +16,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.10.6'  # ajusta la versión según tu proyecto
+          flutter-version: '3.0.6'  # ajusta la versión según tu proyecto
 
       - name: Install dependencies
         run: flutter pub get
@@ -26,7 +26,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: |
-          flutter pub global activate sonar
-          flutter pub global run sonar:main \
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
             -Dsonar.login=${SONAR_TOKEN}
