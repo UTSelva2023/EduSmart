@@ -86,6 +86,7 @@ class _PreguntasScreenState extends State<PreguntasScreen> {
       setState(() {
       if (selectedIndex == index) {
         // Deselecciona la respuesta si se selecciona nuevamente
+        // ignore: unnecessary_null_comparison
         selectedIndex != null;
       } else {
         selectedIndex = index;

@@ -9,6 +9,7 @@ import 'widgets/nextbutton/next_button_widget.dart';
 import 'widgets/questionindicator/question_indicator_widget.dart';
 import 'widgets/quizzScreen/preguntas.dart';
 
+// ignore: must_be_immutable
 class QuizzPage extends StatefulWidget {
   int idalumno;
   final int idmateria;
