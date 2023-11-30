@@ -1,4 +1,4 @@
-name: SonarQube Analysis
+name: SonarQube analysis
 
 on:
   push:
@@ -6,25 +6,19 @@ on:
       - main
 
 jobs:
-  sonarqube:
+  sonar-scanner:
     runs-on: ubuntu-latest
-
+    env:
+      SONARQUBE_SECRET_KEY: ${{ secrets.SONAR_TOKEN }}
+      SONARQUBE_HOST: ${{ secrets.SONAR_HOST_URL }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
+      - uses: actions/checkout@v2
+      - name: Setup Flutter
+        uses: actions/setup-flutter@v3
         with:
-          flutter-version: '3.10.6'  # ajusta la versión según tu proyecto
-
-      - name: Install dependencies
-        run: flutter pub get
-
-      #- name: SonarQube Scan
-        #env:
-          #SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          #SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        #run: |
-            #-Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-            #-Dsonar.login=${SONAR_TOKEN}
+          flutter-version: '3.10.6'
+      - name: SonarQube analysis
+        run: |
+          flutter pub get
+          flutter analyze
+          sonar-scanner -Dsonar.projectKey=UTSelva2023_EduSmart_AYweLX0299VCMeYC9A9f -Dsonar.sources=lib -Dsonar.language=Dart -Dsonar.host=$SONARQUBE_HOST -Dsonar.secretKey=$SONARQUBE_SECRET_KEY
