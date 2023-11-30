@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup Flutter
-        uses: actions/setup-flutter@v3
+        uses: actions/setup-flutter@v2
         with:
           flutter-version: '3.10.6'
       - name: SonarQube analysis
