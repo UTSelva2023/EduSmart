@@ -288,6 +288,7 @@ Future<void> actualizarDatosAlumno(
       }
   }
   Future uploadImage(File image, String matricula,) async {
+    // ignore: unnecessary_null_comparison
     if (image == null) return;
 
     String apiUrl = 'http://$ip/actualizar-foto';
